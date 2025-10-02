@@ -1,0 +1,5 @@
+{
+  "name": "Dynamic SaaS Dashboard",
+  "description": "A responsive SaaS dashboard application featuring dynamic sidebars, context-aware navigation, and a functional footer with an overlay app launcher, all based on a detailed UI mockup.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic SaaS Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              border: 'hsl(var(--border))',
+              background: 'hsl(var(--background))',
+              component: 'hsl(var(--component))',
+              card: 'hsl(var(--card))',
+              sidebar: 'hsl(var(--sidebar))',
+              
+              primary: {
+                DEFAULT: 'hsl(var(--primary))',
+                foreground: 'hsl(var(--primary-foreground))',
+              },
+              secondary: {
+                DEFAULT: 'hsl(var(--secondary))',
+                foreground: 'hsl(var(--secondary-foreground))',
+              },
+              
+              'accent-primary': {
+                DEFAULT: 'hsl(var(--accent-primary))',
+                foreground: 'hsl(var(--accent-primary-foreground))',
+              },
+              'accent-secondary': {
+                DEFAULT: 'hsl(var(--accent-secondary))',
+                foreground: 'hsl(var(--accent-secondary-foreground))',
+              },
+              
+              destructive: {
+                DEFAULT: 'hsl(var(--destructive))',
+                foreground: 'hsl(var(--destructive-foreground))',
+              },
+              info: {
+                DEFAULT: 'hsl(var(--info))',
+                foreground: 'hsl(var(--info-foreground))',
+              },
+              success: {
+                DEFAULT: 'hsl(var(--success))',
+                foreground: 'hsl(var(--success-foreground))',
+              },
+              warning: {
+                DEFAULT: 'hsl(var(--warning))',
+                foreground: 'hsl(var(--warning-foreground))',
+              },
+            },
+            borderRadius: {
+              'custom': 'var(--radius)',
+            },
+            boxShadow: {
+              'custom': '0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07)',
+              'glow-primary': '0 0 12px 0 hsl(var(--accent-primary) / 0.35)',
+              'glow-secondary': '0 0 12px 0 hsl(var(--accent-secondary) / 0.35)',
+            },
+            animation: {
+              'fade-in': 'fade-in 0.3s ease-out forwards',
+            },
+            keyframes: {
+              'fade-in': {
+                'from': { opacity: '0', transform: 'scale(0.95)' },
+                'to': { opacity: '1', transform: 'scale(1)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <style>
+    :root {
+      --background: 220 20% 97%;
+      --component: 0 0% 100%;
+      --card: 0 0% 100%;
+      --sidebar: 220 25% 95%;
+      --border: 220 20% 85%;
+
+      --primary: 225 25% 15%;
+      --primary-foreground: 0 0% 100%;
+      
+      --secondary: 220 10% 45%;
+      --secondary-foreground: 0 0% 100%;
+
+      --accent-primary: 217 100% 60%;
+      --accent-primary-foreground: 0 0% 100%;
+      
+      --accent-secondary: 262 88% 58%;
+      --accent-secondary-foreground: 0 0% 100%;
+      
+      --destructive: 0 84% 60%;
+      --destructive-foreground: 0 0% 100%;
+
+      --info: 195 90% 50%;
+      --info-foreground: 0 0% 100%;
+      
+      --success: 145 75% 45%;
+      --success-foreground: 0 0% 100%;
+      
+      --warning: 40 95% 55%;
+      --warning-foreground: 30 10% 5%;
+      
+      --radius: 1rem;
+    }
+
+    .dark {
+      --background: 228 10% 6%;
+      --component: 225 15% 10%;
+      --card: 228 15% 15%;
+      --sidebar: 228 15% 15%;
+      --border: 220 15% 25%;
+
+      --primary: 210 20% 90%;
+      --primary-foreground: 228 10% 6%;
+      
+      --secondary: 220 15% 60%;
+      --secondary-foreground: 210 20% 90%;
+
+      --accent-primary: 180 100% 50%; /* Neon Cyan */
+      --accent-primary-foreground: 228 10% 6%;
+
+      --accent-secondary: 310 100% 50%; /* Neon Magenta */
+      --accent-secondary-foreground: 228 10% 6%;
+      
+      --destructive: 0 62% 50%;
+      --destructive-foreground: 0 0% 100%;
+      
+      --info: 190 100% 55%;
+      --info-foreground: 228 10% 6%;
+      
+      --success: 130 90% 50%;
+      --success-foreground: 228 10% 6%;
+      
+      --warning: 45 100% 55%;
+      --warning-foreground: 228 10% 6%;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.1.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
